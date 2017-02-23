@@ -7,6 +7,7 @@
 //  Copyright © 2016 Brightify. All rights reserved.
 //
 
+import Foundation
 import Commandant
 
 let registry = CommandRegistry<CuckooGeneratorError>()
