@@ -101,7 +101,7 @@ public struct Tokenizer {
             return ExtensionDeclaration(range: range!)
             
         case Kinds.InstanceVariable.rawValue:
-            let setterAccessibility = (dictionary[Key.SetterAccessibility.rawValue] as? String).flatMap(Accessibility.init)
+            let setterAccessibility = bodyRange != nil ? Accessibility.FilePrivate : (dictionary[Key.SetterAccessibility.rawValue] as? String).flatMap(Accessibility.init)
             
             if String(describing: source.utf8.dropFirst(range!.startIndex)).takeUntil(occurence: name)?.trimmed.hasPrefix("let") == true {
                 return nil
