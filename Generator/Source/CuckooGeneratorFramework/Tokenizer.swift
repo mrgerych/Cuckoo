@@ -104,7 +104,7 @@ public struct Tokenizer {
             var isGetterByBody = false
             if let bodyRange = bodyRange {
                 let body = source[bodyRange.startIndex..<bodyRange.endIndex]
-                    .trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    .components(separatedBy: .whitespacesAndNewlines).joined()
                 let containsPropertyObservers = body.contains("didSet{") || body.contains("didGet{")
                 
                 // var mark in protocol as getter (var variable: String { get } )
