@@ -109,7 +109,7 @@ public struct Tokenizer {
                 
                 // var mark in protocol as getter (var variable: String { get } )
                 // or var in object have body and it is not observers
-                if body == "get" || !containsPropertyObservers {
+                if body == "get" || (!containsPropertyObservers && body != "setget" && body != "getset") {
                     isGetterByBody = true
                 }
             }
